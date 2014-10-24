@@ -1,8 +1,9 @@
 /*!
  * lotjs JavaScript Framework 1.0
- * https://code.google.com/p/lotjs/
+ * Initially created at https://code.google.com/p/lotjs/
+ * Now located at GitHub.
  *
- * Copyrights 2012 ff David Lorenz
+ * Developed by David Lorenz (http://activenode.de)
  * Released under the MIT license
  */
 
