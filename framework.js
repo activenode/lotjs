@@ -10,10 +10,7 @@
 
 
 $ = function(expr) {
-	if (typeof expr == 'number') {
-		//hey we got a mathematician here
-		return new $._mathObject(expr);
-	} else if (typeof expr == 'string' || expr instanceof HTMLElement 
+	if (typeof expr == 'string' || expr instanceof HTMLElement 
 		|| expr instanceof $._domObject || expr instanceof $._collectionType) {
 		//should be DOMElement-Expression type
 		return new $._domObject(expr);
@@ -154,102 +151,6 @@ $.oa = {
 	}
 };
 
-
-
-/**
-#######################################
-#######################################
-#######################################
-**/
-$._mathObject = function(number) {
-	this.number = number;
-	
-	//creates new mathobject instance
-	this._c = function(number) {
-		return new $._mathObject(number);	
-	};
-	
-	
-	//square function
-	this.square = function() {
-		return this.pow(2);
-	};
-	
-	
-	//power function
-	this.pow = function(exponent) {
-		return this._c(Math.pow(this.number, exponent));
-	};
-	
-	
-	//modulo function
-	this.mod = function(intB) {
-		return this._c(this.number%intB);
-	};
-	
-	
-	//add
-	this.plus = function(add) {
-		return this._c(this.number+add);
-	};
-	
-	
-	//subtract
-	this.minus = function(sub) {
-		return this._c(this.number-sub);
-	};
-	
-	//multiply
-	this.mult = function(tiply) {
-		return this._c(this.number*tiply);
-	};
-	
-	//divide
-	this.divide = function(dNum) {
-		return this._c(this.number/(1.0*dNum));
-	};
-	
-	//>= 0 ?
-	this.isPositive = function() {
-		return this.number >= 0;	
-	};
-	
-	
-	//< 0 ?
-	this.isNegative = function() {
-		return !(this.isPositive());	
-	};
-	
-	
-	//flooring
-	this.floor = function() {
-		return this._c(Math.floor(this.number));
-	};
-	
-	//ceiling
-	this.ceil = function() {
-		return this._c(Math.ceil(this.number));
-	};
-	
-	//absolute value
-	this.abs = function() {
-		return this._c(Math.abs(this.number));
-	};
-	
-	//from 0/1 to number
-	this.upLoop = function(handler,useNatural) {
-		for (var i=0; i<this.number; i++) {
-			handler(i+((useNatural===true)?1:0));
-		}
-	};
-	
-	
-	this.toString = function() {
-		return this.number;
-	};
-	
-	return this;
-};
 
 
 
